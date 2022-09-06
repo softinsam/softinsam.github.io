@@ -133,6 +133,11 @@ input[name="r"]{
   margin-left: -80%;
 }
 
+.img{
+  display: block;
+  margin: auto;
+}
+
 
 .footer{
   margin-top: 600px;
