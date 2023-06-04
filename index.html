@@ -1,15 +1,90 @@
-<div class='container'>
-  <p>Selection Sort: </p>
-  <ul class='line'>
-    <li data-block="3" class="block" data-width="">3</li>
-    <li data-block="2" class="block" data-width="">2</li>
-    <li data-block="1" class="block" data-width="">1</li>
-    <li data-block="4" class="block" data-width="">4</li>
-    <li data-block="6" class="block" data-width="">6</li>
-    <li data-block="5" class="block" data-width="">5</li>
-    <li data-block="8" class="block" data-width="">8</li>
-    <li data-block="7" class="block" data-width="">7</li>
-  </ul>
-  <br>
-  <button class='sSort bb'>Sort</button>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS 스타일링 */
+    .bar {
+      display: inline-block;
+      background-color: #2196F3;
+      margin: 0 2px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML 구조 -->
+  <div id="bars"></div>
+  <button onclick="startSorting()">Sort</button>
+
+  <!-- JavaScript 로직 -->
+  <script>
+    // 버블 정렬 알고리즘을 시각화하는 함수
+    async function bubbleSort() {
+      const bars = document.querySelectorAll('.bar');
+      const numBars = bars.length;
+
+      for (let i = 0; i < numBars - 1; i++) {
+        for (let j = 0; j < numBars - i - 1; j++) {
+          bars[j].style.backgroundColor = 'yellow';
+          bars[j + 1].style.backgroundColor = 'yellow';
+          await sleep(100); // 애니메이션을 위한 대기
+
+          const height1 = parseInt(bars[j].style.height);
+          const height2 = parseInt(bars[j + 1].style.height);
+
+          if (height1 > height2) {
+            await swapBars(bars, j, j + 1);
+          }
+
+          bars[j].style.backgroundColor = '#2196F3';
+          bars[j + 1].style.backgroundColor = '#2196F3';
+        }
+
+        bars[numBars - i - 1].style.backgroundColor = 'green';
+      }
+      bars[0].style.backgroundColor = 'green';
+    }
+
+    // 두 바(bar)를 교환하는 함수
+    async function swapBars(bars, idx1, idx2) {
+      await sleep(300); // 애니메이션을 위한 대기
+
+      const temp = bars[idx1].style.height;
+      bars[idx1].style.height = bars[idx2].style.height;
+      bars[idx2].style.height = temp;
+    }
+
+    // 일시 정지를 위한 대기 함수
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // 정렬 시작 함수
+    function startSorting() {
+      bubbleSort();
+    }
+
+    // 초기 랜덤한 바(bar) 생성
+    function generateBars() {
+      const barsContainer = document.getElementById('bars');
+      const numBars = 10; // 바(bar)의 개수
+
+      for (let i = 0; i < numBars; i++) {
+        const height = Math.floor(Math.random() * 200) + 20;
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.height = height + 'px';
+        barsContainer.appendChild(bar);
+      }
+    }
+
+    // 초기화 함수
+    function initialize() {
+      generateBars();
+    }
+
+    // 초기화 함수 호출
+    initialize();
+  </script>
+</body>
+</html>
