@@ -1,161 +1,96 @@
-*{
-  font-family: 'Noto Sans KR', sans-serif;
+body {
+  background: #c3cccc;
+}
+.container {
+  padding: 30px;
+  width: 460px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.container p {
+  font-size: 25px;
+  font-weight: lighter;
+  font-family: "sans";
+  text-align: center;
+}
+.line {
+  float: left;
+  display: inline;
   list-style: none;
-  text-decoration: none;
-  border-collapse: collapse;
-  margin:0px;
-  padding: 0px;
-  color: #fff;
 }
-
-body{
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-
-img{
-    margin: 0 auto;
-}
-
-
-.intro_bg{
-  background-image: url("image/intro.png");
-  background-size: 209px;
-  width: 209px;
-  margin: 0 auto;
-  height:81px;
-  background-color:#fff;
-}
-
-.main_text0{
-  width: 100%;
-  height:100px;
-  background: black;
-  <--!상단 2번째 영역 색상,크기-->
-}
-
-}
-.main_text0 > .contents1 {
-  text-align: center;
-}
-
-.icons{
-  display: flex;
-  width:1280px;
-  height: 70px;
-  /* background: orange; */
-  margin:auto;
-}
-.icons > li {
-  flex: 1;
-  background: black;
-  height:70px;
-  text-align: center;
-}
-.icons > li > .icon_img{
-  margin-top:15px;
-}
-
-
-
-.icons .contents2 {
-  width:280px;
-  margin:auto;
-  letter-spacing: -1px;
-}
-
-.slidershow{
-  width: 700px;
-  height: 400px;
-  overflow: hidden;
-}
-.middle{
-  margin-top: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-.navigation{
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-.bar{
-  width: 50px;
-  height: 10px;
-  border: 2px solid #fff;
-  margin: 6px;
+.line li {
+  float: left;
+  border: 1px solid grey;
+  border-right: 0px none;
+  padding: 20px;
   cursor: pointer;
-  transition: 0.4s;
 }
-.bar:hover{
-  background: #fff;
+.line li:last-child {
+  border-right: 1px solid grey;
 }
-
-input[name="r"]{
-    position: absolute;
-    visibility: hidden;
+.line li {
+  background: #343436;
+  color: white;
+  transition: 500ms;
 }
-
-.slides{
-  width: 500%;
-  height: 100%;
-  display: flex;
+.line li:hover {
+  background: grey;
+  transition: 500ms;
+  border: 1px solid black;
 }
-
-.slide{
-
-  width: 20%;
-  transition: 0.6s;
+.bb {
+  border: 1px solid lightgrey;
+  width: 80px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 200ms;
 }
-.slide img{
-  width: 100%;
-  height: 100%;
+.bb:hover {
+  background: grey;
+  color: white;
 }
-
-#r1:checked ~ .s1{
-  margin-left: 0;
+.drawFrom {
+  position: relative;
+  background: red !important;
+  transition: 150ms;
 }
-#r2:checked ~ .s1{
-  margin-left: -20%;
+.drawFrom:before {
+  content: "";
+  position: absolute;
+  top: -23px;
+  left: 23px;
+  border: 1px solid red;
+  height: 25px;
+  width: 0px;
+  padding: 0px;
 }
-#r3:checked ~ .s1{
-  margin-left: -40%;
+.drawFrom:after {
+  content: "";
+  position: absolute;
+  border: 1px dashed red;
+  top: -25px;
+  left: 23px;
+  width: var(--width);
+  height: 0px;
+  transition: 150ms;
 }
-#r4:checked ~ .s1{
-  margin-left: -60%;
+.drawTo {
+  position: relative;
+  background: red !important;
 }
-#r5:checked ~ .s1{
-  margin-left: -80%;
+.drawTo:before {
+  content: "";
+  border: 1px solid red;
+  position: absolute;
+  top: -25px;
+  left: 25px;
+  height: 25px;
 }
-
-.img{
-  display: block;
-  padding: 0 20px 20px 20px 20px;
-  margin: auto;
-}
-
-
-.footer{
-  margin-top: 600px;
-  display: flex;
-  width:100%;
-  background:black;
-  height: 240px;
-}
-.footer > div:first-child {
-  flex:3;
-  margin:20px auto;
-  text-align: center;
-  color: #fff;
-}
-.footer > div:last-child {
-  line-height: 25px;
-  margin:20px auto;
-  flex:9;
-  color: #fff;
+.match,
+.match:before,
+.match:after {
+  background: green !important;
+  border: 1px solid green;
+  transition: 100ms;
 }
